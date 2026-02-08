@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - AutoStyle</title>
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Яндекс.Карты API -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=781b25e6-75d5-4d85-b96e-cf6b42bb3e59&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body class="font-montserrat bg-gray-50">
+    <!-- Шапка сайта -->
+    <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Логотип -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="logo-container">
+                        <img src="images/logo.svg" alt="AutoStyle Logo" class="h-12 w-12">
+                    </div>
+                    <span class="text-2xl font-bold text-orange-500">Auto<span class="text-white">Style</span></span>
+                </a>
+                
+                <!-- Навигационное меню -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link hover:text-orange-500 transition-colors">Главная</a>
+                    <a href="catalog.html" class="nav-link hover:text-orange-500 transition-colors">Каталог</a>
+                    <a href="contacts.html" class="nav-link text-orange-500 font-semibold">Контакты</a>
+                </nav>
+
+                <!-- Кнопки действий -->
+                <div class="flex items-center space-x-4">
+                    <!-- Корзина -->
+                    <a href="cart.html" class="relative p-2 text-white hover:text-orange-500 transition-colors" title="Корзина">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <span id="cart-counter" class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                    </a>
+                    <button id="registerBtn" class="hidden md:block px-4 py-2 border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-all">
+                        Регистрация
+                    </button>
+                    <button id="loginBtn" class="hidden md:block px-4 py-2 border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-all">
+                        Войти
+                    </button>
+                    <button class="md:hidden text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero секция -->
+    <section class="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-gray-400 mb-6">
+                <a href="index.html" class="hover:text-orange-500 transition-colors">Главная</a>
+                <span>/</span>
+                <span class="text-white">Контакты</span>
+            </div>
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Мы всегда рады помочь вам с выбором автомобильных аксессуаров. 
+                    Наши специалисты готовы ответить на все ваши вопросы!
+                </p>
+                <!-- Слоган -->
+                <div class="mt-8 inline-block px-6 py-3 bg-orange-500/20 border border-orange-500/50 rounded-full">
+                    <p class="text-orange-400 font-semibold text-lg">
+                        «AutoStyle — стиль вашего автомобиля начинается здесь!»
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <main class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Контактные карточки -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Телефон -->
+                <div class="contact-card text-center">
+                    <div class="contact-icon mx-auto">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Телефон</h3>
+                    <p class="text-gray-600 mb-4">Звоните нам в любое время</p>
+                    <a href="tel:+78001234567" class="text-orange-500 font-semibold text-lg hover:text-orange-600 transition-colors">
+                        +7 (800) 123-45-67
+                    </a>
+                    <p class="text-gray-500 text-sm mt-2">Бесплатно по России</p>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card text-center">
+                    <div class="contact-icon mx-auto">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-600 mb-4">Напишите нам письмо</p>
+                    <a href="mailto:info@autostyle.ru" class="text-orange-500 font-semibold text-lg hover:text-orange-600 transition-colors">
+                        info@autostyle.ru
+                    </a>
+                    <p class="text-gray-500 text-sm mt-2">Ответим в течение 24 часов</p>
+                </div>
+
+                <!-- Адрес -->
+                <div class="contact-card text-center">
+                    <div class="contact-icon mx-auto">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Адрес магазина</h3>
+                    <p class="text-gray-600 mb-4">Приезжайте к нам</p>
+                    <p class="text-orange-500 font-semibold text-lg">
+                        г. Санкт-Петербург, Невский пр., 48
+                    </p>
+                    <p class="text-gray-500 text-sm mt-2">Ежедневно с 9:00 до 21:00</p>
+                </div>
+            </div>
+
+            <!-- Форма обратной связи и карта -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Форма обратной связи -->
+                <div class="contact-form">
+                    <h2 class="text-2xl font-bold mb-6">Напишите нам</h2>
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label class="form-label" for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Введите ваше имя">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Введите ваш email">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Тема обращения *</label>
+                            <select id="subject" name="subject" class="form-input">
+                                <option value="">Выберите тему</option>
+                                <option value="order">Вопрос по заказу</option>
+                                <option value="product">Вопрос о товаре</option>
+                                <option value="delivery">Доставка</option>
+                                <option value="return">Возврат товара</option>
+                                <option value="cooperation">Сотрудничество</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Сообщение *</label>
+                            <textarea id="message" name="message" rows="9" class="form-input" placeholder="Введите ваше сообщение..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-all transform hover:scale-105">
+                            Отправить сообщение
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Карта -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6">Как нас найти</h2>
+                    <div class="map-container h-[450px] lg:h-[550px]">
+                        <!-- Яндекс.Карты API -->
+                        <div id="yandex-map" class="w-full h-full rounded-xl"></div>
+                    </div>
+
+                    <!-- Дополнительная информация -->
+                    <div class="mt-6 p-8 bg-white rounded-xl shadow">
+                        <h3 class="font-semibold text-lg mb-4">Режим работы</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Понедельник - Пятница</span>
+                                <span class="font-medium">9:00 - 21:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Суббота</span>
+                                <span class="font-medium">10:00 - 20:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Воскресенье</span>
+                                <span class="font-medium">10:00 - 18:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-gray-900 text-white pt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- О компании -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="images/logo.svg" alt="AutoStyle Logo" class="h-10 w-10">
+                        <span class="text-xl font-bold text-orange-500">Auto<span class="text-white">Style</span></span>
+                    </div>
+                    <p class="text-gray-400">
+                        Ваш надежный партнер в мире автомобильных аксессуаров.
+                    </p>
+                </div>
+
+                <!-- Навигация: Главная -->
+                <div>
+                    <a href="index.html" class="text-lg font-semibold mb-4 block hover:text-orange-500 transition-colors">Главная</a>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#categories" class="text-gray-400 hover:text-orange-500 transition-colors">Наши категории</a></li>
+                        <li><a href="index.html#products" class="text-gray-400 hover:text-orange-500 transition-colors">Популярные товары</a></li>
+                        <li><a href="index.html#newsletter" class="text-gray-400 hover:text-orange-500 transition-colors">Рассылка</a></li>
+                    </ul>
+                </div>
+
+                <!-- Навигация: Каталог -->
+                <div>
+                    <a href="catalog.html" class="text-lg font-semibold mb-4 block hover:text-orange-500 transition-colors">Каталог</a>
+                    <ul class="space-y-2">
+                        <li><a href="catalog.html#electronics" class="text-gray-400 hover:text-orange-500 transition-colors">Автомобильная электроника</a></li>
+                        <li><a href="catalog.html#interior" class="text-gray-400 hover:text-orange-500 transition-colors">Аксессуары для салона</a></li>
+                        <li><a href="catalog.html#care" class="text-gray-400 hover:text-orange-500 transition-colors">Уход за авто</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 py-8">
+                <p class="text-gray-400 text-sm text-center">© 2026 AutoStyle</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        /**
+         * Инициализация Яндекс.Карты
+         * Использование Яндекс.Карты API для отображения местоположения магазина
+         */
+        ymaps.ready(initYandexMap);
+
+        function initYandexMap() {
+            // Координаты магазина (Санкт-Петербург, Невский пр., 48)
+            const shopCoordinates = [59.9346, 30.3339];
+            
+            // Создание карты
+            const map = new ymaps.Map('yandex-map', {
+                center: shopCoordinates,
+                zoom: 16,
+                controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
+            });
+
+            // Создание метки магазина
+            const shopPlacemark = new ymaps.Placemark(shopCoordinates, {
+                // Содержимое балуна
+                balloonContentHeader: '<strong style="color: #f97316;">AutoStyle</strong>',
+                balloonContentBody: `
+                    <div style="padding: 10px;">
+                        <p style="margin: 0 0 10px 0;"><strong>Адрес:</strong> г. Санкт-Петербург, Невский пр., 48</p>
+                        <p style="margin: 0 0 10px 0;"><strong>Телефон:</strong> +7 (800) 123-45-67</p>
+                        <p style="margin: 0 0 10px 0;"><strong>Email:</strong> info@autostyle.ru</p>
+                        <p style="margin: 0;"><strong>Режим работы:</strong><br>Пн-Пт: 9:00 - 20:00<br>Сб-Вс: 10:00 - 18:00</p>
+                    </div>
+                `,
+                balloonContentFooter: '<a href="tel:+78001234567" style="color: #f97316;">Позвонить</a>',
+                // Подсказка при наведении
+                hintContent: 'AutoStyle - Магазин автоаксессуаров'
+            }, {
+                // Настройки метки
+                iconLayout: 'default#image',
+                iconImageHref: 'images/logo.svg',
+                iconImageSize: [50, 50],
+                iconImageOffset: [-25, -50],
+                // Или используем стандартную метку с цветом
+                preset: 'islands#orangeAutoIcon'
+            });
+
+            // Добавление метки на карту
+            map.geoObjects.add(shopPlacemark);
+
+            // Открытие балуна при загрузке
+            shopPlacemark.balloon.open();
+
+            // Отключение прокрутки карты колесом мыши (для удобства скролла страницы)
+            map.behaviors.disable('scrollZoom');
+
+            console.log('Яндекс.Карта успешно инициализирована');
+        }
+    </script>
+</body>
+</html>

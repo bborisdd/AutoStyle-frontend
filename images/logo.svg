@@ -1,0 +1,27 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Корпус автомобиля -->
+  <path d="M8 28C8 26.8954 8.89543 26 10 26H38C39.1046 26 40 26.8954 40 28V34C40 35.1046 39.1046 36 38 36H10C8.89543 36 8 35.1046 8 34V28Z" fill="#1f2937"/>
+  
+  <!-- Крыша -->
+  <path d="M14 26L18 18H30L34 26H14Z" fill="#1f2937"/>
+  
+  <!-- Окна -->
+  <path d="M15.5 25L18.5 19H23V25H15.5Z" fill="#60a5fa"/>
+  <path d="M25 25V19H29.5L32.5 25H25Z" fill="#60a5fa"/>
+  
+  <!-- Колёса -->
+  <circle cx="14" cy="36" r="4" fill="#374151"/>
+  <circle cx="14" cy="36" r="2" fill="#9ca3af"/>
+  <circle cx="34" cy="36" r="4" fill="#374151"/>
+  <circle cx="34" cy="36" r="2" fill="#9ca3af"/>
+  
+  <!-- Фары -->
+  <rect x="6" y="29" width="3" height="2" rx="0.5" fill="#f97316"/>
+  <rect x="39" y="29" width="3" height="2" rx="0.5" fill="#f97316"/>
+  
+  <!-- Декоративная полоса -->
+  <path d="M10 31H38" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Звезда/искра (символ стиля) -->
+  <path d="M24 8L25.5 12L29 13L25.5 14L24 18L22.5 14L19 13L22.5 12L24 8Z" fill="#f97316"/>
+</svg>

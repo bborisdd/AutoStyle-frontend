@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коврики EVA Premium - AutoStyle</title>
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-montserrat bg-gray-50">
+    <!-- Шапка сайта -->
+    <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Логотип -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="logo-container">
+                        <img src="images/logo.svg" alt="AutoStyle Logo" class="h-12 w-12">
+                    </div>
+                    <span class="text-2xl font-bold text-orange-500">Auto<span class="text-white">Style</span></span>
+                </a>
+                
+                <!-- Навигационное меню -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link hover:text-orange-500 transition-colors">Главная</a>
+                    <a href="catalog.html" class="nav-link text-orange-500 font-semibold">Каталог</a>
+                    <a href="contacts.html" class="nav-link hover:text-orange-500 transition-colors">Контакты</a>
+                </nav>
+
+                <!-- Кнопки действий -->
+                <div class="flex items-center space-x-4">
+                    <!-- Корзина -->
+                    <a href="cart.html" class="relative p-2 text-white hover:text-orange-500 transition-colors" title="Корзина">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <span id="cart-counter" class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                    </a>
+                    <button id="registerBtn" class="hidden md:block px-4 py-2 border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-all">
+                        Регистрация
+                    </button>
+                    <button id="loginBtn" class="hidden md:block px-4 py-2 border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-all">
+                        Войти
+                    </button>
+                    <button class="md:hidden text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero секция с Breadcrumbs -->
+    <section class="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                <a href="index.html" class="hover:text-orange-500 transition-colors">Главная</a>
+                <span>/</span>
+                <a href="catalog.html" class="hover:text-orange-500 transition-colors">Каталог</a>
+                <span>/</span>
+                <span id="breadcrumb-product" class="text-white">Загрузка...</span>
+            </div>
+            <h1 id="product-title" class="text-3xl md:text-4xl font-bold">Загрузка...</h1>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <main class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 lg:p-8">
+                    <!-- Галерея изображений -->
+                    <div class="product-gallery">
+                        <div class="product-gallery-main mb-4">
+                            <img id="mainImage" src="images/products/floor-mats.jpg" alt="Коврики EVA Premium" class="w-full h-96 object-cover rounded-xl">
+                        </div>
+                        <div class="product-gallery-thumbs">
+                            <div class="product-gallery-thumb active" onclick="changeImage(this, 'images/products/floor-mats.jpg')">
+                                <img src="images/products/floor-mats.jpg" alt="Коврики EVA Premium - вид 1" class="w-full h-full object-cover">
+                            </div>
+                            <div class="product-gallery-thumb" onclick="changeImage(this, 'images/products/floor-mats-2.jpg')">
+                                <img src="images/products/floor-mats-2.jpg" alt="Коврики EVA Premium - вид 2" class="w-full h-full object-cover">
+                            </div>
+                            <div class="product-gallery-thumb" onclick="changeImage(this, 'images/products/floor-mats-3.jpg')">
+                                <img src="images/products/floor-mats-3.jpg" alt="Коврики EVA Premium - вид 3" class="w-full h-full object-cover">
+                            </div>
+                            <div class="product-gallery-thumb" onclick="changeImage(this, 'images/products/floor-mats-4.jpg')">
+                                <img src="images/products/floor-mats-4.jpg" alt="Коврики EVA Premium - вид 4" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Информация о товаре -->
+                    <div class="product-info">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span id="product-stock" class="badge badge-success">В наличии</span>
+                            <span id="product-sku" class="text-gray-400 text-sm">Артикул: ---</span>
+                        </div>
+
+                        <!-- Краткое описание -->
+                        <p id="product-description" class="text-gray-600 mb-6">
+                            Загрузка описания...
+                        </p>
+
+                        <!-- Цена -->
+                        <div class="mb-6">
+                            <div class="flex items-baseline gap-3">
+                                <span id="product-price" class="text-3xl font-bold text-gray-900">--- ₽</span>
+                                <span id="product-old-price" class="text-lg text-gray-400 line-through hidden">--- ₽</span>
+                                <span id="product-discount" class="badge bg-red-100 text-red-600 hidden">-0%</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-1">Цена за комплект из 4 ковриков</p>
+                        </div>
+
+                        <!-- Выбор цвета -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold mb-3">Цвет:</h3>
+                            <div class="flex gap-3">
+                                <button class="w-10 h-10 rounded-full bg-black border-2 border-orange-500 focus:outline-none" title="Черный"></button>
+                            </div>
+                        </div>
+
+                        <!-- Выбор количества -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold mb-3">Количество:</h3>
+                            <div class="quantity-selector inline-flex">
+                                <button class="quantity-btn" onclick="changeQuantity(-1)">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                    </svg>
+                                </button>
+                                <input type="number" id="quantity" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="changeQuantity(1)">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- Итоговая стоимость -->
+                            <div class="mt-3">
+                                <p class="text-lg font-semibold text-gray-900">Итого: <span id="totalPrice">2 990 ₽</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Кнопки действий -->
+                        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                            <button id="addToCartBtn" class="flex-1 py-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                                Добавить в корзину
+                            </button>
+                        </div>
+
+                        <!-- Доставка и гарантия -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-xl">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Бесплатная доставка</p>
+                                    <p class="text-sm text-gray-500">от 3000 ₽</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Гарантия</p>
+                                    <p class="text-sm text-gray-500">12 месяцев</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вкладки с информацией -->
+                <div class="border-t">
+                    <div class="p-6 lg:p-8">
+                        <div class="tabs">
+                            <button class="tab active" onclick="openTab(event, 'description')">Описание</button>
+                            <button class="tab" onclick="openTab(event, 'specs')">Характеристики</button>
+                        </div>
+
+                        <!-- Описание -->
+                        <div id="description" class="tab-content active">
+                            <div id="description-content" class="prose max-w-none">
+                                <p class="text-gray-600">Загрузка описания...</p>
+                            </div>
+                        </div>
+
+                        <!-- Характеристики -->
+                        <div id="specs" class="tab-content">
+                            <div id="specs-content" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <p class="text-gray-600">Загрузка характеристик...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-gray-900 text-white pt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- О компании -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="images/logo.svg" alt="AutoStyle Logo" class="h-10 w-10">
+                        <span class="text-xl font-bold text-orange-500">Auto<span class="text-white">Style</span></span>
+                    </div>
+                    <p class="text-gray-400">
+                        Ваш надежный партнер в мире автомобильных аксессуаров.
+                    </p>
+                </div>
+
+                <!-- Навигация: Каталог -->
+                <div>
+                    <a href="catalog.html" class="text-lg font-semibold mb-4 block hover:text-orange-500 transition-colors">Каталог</a>
+                    <ul class="space-y-2">
+                        <li><a href="catalog.html#electronics" class="text-gray-400 hover:text-orange-500 transition-colors">Автомобильная электроника</a></li>
+                        <li><a href="catalog.html#interior" class="text-gray-400 hover:text-orange-500 transition-colors">Аксессуары для салона</a></li>
+                        <li><a href="catalog.html#care" class="text-gray-400 hover:text-orange-500 transition-colors">Уход за авто</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div>
+                    <a href="contacts.html" class="text-lg font-semibold mb-4 block hover:text-orange-500 transition-colors">Контакты</a>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-400">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            +7 (800) 123-45-67
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-400">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            info@autostyle.ru
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-400">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            г. Санкт-Петербург, Невский пр., 48
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 py-8">
+                <p class="text-gray-400 text-sm text-center">© 2026 AutoStyle</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Данные текущего товара (будут загружены)
+        let currentProduct = null;
+        let basePrice = 0;
+
+        // Получаем ID товара из URL
+        function getProductIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id')) || 5; // По умолчанию ID=5
+        }
+
+        // Загрузка и отображение товара
+        async function loadProduct() {
+            const productId = getProductIdFromUrl();
+            
+            try {
+                const response = await fetch('data/products.json');
+                const data = await response.json();
+                currentProduct = data.products.find(p => p.id === productId);
+                
+                if (!currentProduct) {
+                    // Товар не найден - показываем ошибку
+                    document.querySelector('.container').innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Товар не найден</h2>
+                            <p class="text-gray-600 mb-6">К сожалению, товар с ID ${productId} не существует.</p>
+                            <a href="catalog.html" class="btn btn-primary">Вернуться в каталог</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Заполняем данные на странице
+                basePrice = currentProduct.price;
+                
+                // Хлебные крошки и заголовок в шапке
+                document.getElementById('breadcrumb-product').textContent = currentProduct.name;
+                document.getElementById('product-title').textContent = currentProduct.name;
+                
+                // Главное изображение
+                document.getElementById('mainImage').src = currentProduct.image;
+                document.getElementById('mainImage').alt = currentProduct.name;
+                
+                // Скрываем галерею миниатюр (у нас только одно изображение на товар)
+                document.querySelector('.product-gallery-thumbs').style.display = 'none';
+                
+                // Наличие и артикул
+                document.getElementById('product-stock').textContent = currentProduct.inStock ? 'В наличии' : 'Нет в наличии';
+                document.getElementById('product-stock').className = currentProduct.inStock ? 'badge badge-success' : 'badge badge-danger';
+                document.getElementById('product-sku').textContent = `Артикул: ${String(currentProduct.id).padStart(5, '0')}`;
+                
+                // Описание
+                document.getElementById('product-description').textContent = currentProduct.description;
+                
+                // Цена
+                const formattedPrice = new Intl.NumberFormat('ru-RU').format(currentProduct.price);
+                document.getElementById('product-price').textContent = formattedPrice + ' ₽';
+                
+                // Старая цена и скидка
+                const oldPriceEl = document.getElementById('product-old-price');
+                const discountEl = document.getElementById('product-discount');
+                
+                if (currentProduct.oldPrice) {
+                    const formattedOldPrice = new Intl.NumberFormat('ru-RU').format(currentProduct.oldPrice);
+                    oldPriceEl.textContent = formattedOldPrice + ' ₽';
+                    oldPriceEl.style.display = 'inline';
+                    
+                    const discountPercent = Math.round((1 - currentProduct.price / currentProduct.oldPrice) * 100);
+                    discountEl.textContent = `-${discountPercent}%`;
+                    discountEl.style.display = 'inline-flex';
+                } else {
+                    oldPriceEl.style.display = 'none';
+                    discountEl.style.display = 'none';
+                }
+                
+                // Заполняем вкладку "Описание"
+                const descriptionContent = document.getElementById('description-content');
+                let descriptionHTML = `
+                    <h3 class="text-xl font-semibold mb-4">${currentProduct.name}</h3>
+                    <p class="text-gray-600 mb-4">${currentProduct.fullDescription || currentProduct.description}</p>
+                `;
+                
+                if (currentProduct.features && currentProduct.features.length > 0) {
+                    descriptionHTML += `
+                        <h4 class="text-lg font-semibold mb-3 mt-6">Преимущества:</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                            ${currentProduct.features.map(f => `<li>${f}</li>`).join('')}
+                        </ul>
+                    `;
+                }
+                
+                // Добавляем совет (индивидуальный для товара или стандартный)
+                const tipText = currentProduct.tip || 'Для заказа или консультации свяжитесь с нами по телефону или через форму обратной связи на странице контактов.';
+                
+                descriptionHTML += `
+                    <div class="bg-orange-50 p-4 rounded-lg mt-6">
+                        <p class="text-orange-800">
+                            <strong>Совет:</strong> ${tipText}
+                        </p>
+                    </div>
+                `;
+                descriptionContent.innerHTML = descriptionHTML;
+                
+                // Заполняем вкладку "Характеристики"
+                const specsContent = document.getElementById('specs-content');
+                if (currentProduct.specs) {
+                    let specsHTML = '';
+                    for (const [key, value] of Object.entries(currentProduct.specs)) {
+                        specsHTML += `
+                            <div class="flex justify-between py-3 border-b">
+                                <span class="text-gray-500">${key}</span>
+                                <span class="font-medium">${value}</span>
+                            </div>
+                        `;
+                    }
+                    specsContent.innerHTML = specsHTML;
+                } else {
+                    specsContent.innerHTML = '<p class="text-gray-600">Характеристики не указаны</p>';
+                }
+                
+                // Обновляем итоговую стоимость
+                updateTotalPrice();
+                
+                // Обновляем title страницы
+                document.title = `${currentProduct.name} - AutoStyle`;
+                
+            } catch (error) {
+                console.error('Ошибка загрузки товара:', error);
+                document.querySelector('.container').innerHTML = `
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Ошибка загрузки</h2>
+                        <p class="text-gray-600 mb-6">Не удалось загрузить данные товара. Попробуйте обновить страницу.</p>
+                        <a href="catalog.html" class="btn btn-primary">Вернуться в каталог</a>
+                    </div>
+                `;
+            }
+        }
+
+        // Смена главного изображения
+        function changeImage(thumb, src) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.product-gallery-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+
+        // Изменение количества
+        function changeQuantity(delta) {
+            const input = document.getElementById('quantity');
+            let value = parseInt(input.value) + delta;
+            if (value < 1) value = 1;
+            input.value = value;
+            updateTotalPrice();
+        }
+
+        // Обновление итоговой стоимости
+        function updateTotalPrice() {
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+            const total = basePrice * quantity;
+            const formattedTotal = new Intl.NumberFormat('ru-RU').format(total);
+            document.getElementById('totalPrice').textContent = formattedTotal + ' ₽';
+        }
+
+        // Слушаем изменения в поле ввода количества
+        document.getElementById('quantity').addEventListener('input', function() {
+            let value = parseInt(this.value);
+            if (isNaN(value) || value < 1) value = 1;
+            this.value = value;
+            updateTotalPrice();
+        });
+
+        // Обработчик кнопки "Добавить в корзину"
+        document.getElementById('addToCartBtn').addEventListener('click', function() {
+            if (!currentProduct) {
+                showNotification('Товар ещё не загружен. Подождите...', 'error');
+                return;
+            }
+            
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
+            // Получаем текущую корзину
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Проверяем, есть ли товар уже в корзине
+            const existingItem = cart.find(item => item.id === currentProduct.id);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: currentProduct.id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    image: currentProduct.image,
+                    quantity: quantity
+                });
+            }
+            
+            // Сохраняем корзину
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Обновляем счётчик корзины
+            updateCartCounter();
+            
+            // Показываем уведомление
+            showNotification(`Товар "${currentProduct.name}" (${quantity} шт.) добавлен в корзину!`);
+        });
+
+        // Переключение вкладок
+        function openTab(evt, tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Загружаем товар при загрузке страницы
+        loadProduct();
+    </script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+/* ===============================================
+   AutoStyle - Основные стили
+   Веб-сайт по продаже автомобильных аксессуаров
+   =============================================== */
+
+/* ===============================================
+   Базовые стили и переменные
+   =============================================== */
+:root {
+    --primary-color: #f97316;
+    --primary-dark: #ea580c;
+    --secondary-color: #1f2937;
+    --text-color: #374151;
+    --text-light: #6b7280;
+    --bg-light: #f9fafb;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ===============================================
+   Навигация
+   =============================================== */
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===============================================
+   Hero секция с абсолютным позиционированием
+   =============================================== */
+.hero-section {
+    position: relative;
+}
+
+.hero-image {
+    position: absolute;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.hero-image-1 {
+    top: 10%;
+    right: 5%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-image-2 {
+    top: 60%;
+    right: 15%;
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.hero-image-3 {
+    top: 20%;
+    right: 35%;
+    animation: float 7s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.hero-image-4 {
+    bottom: 10%;
+    right: 40%;
+    animation: float 9s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.hero-image-5 {
+    top: 50%;
+    right: 25%;
+    animation: float 5s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+.hero-image-6 {
+    bottom: 20%;
+    right: 8%;
+    animation: float 7s ease-in-out infinite;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ===============================================
+   Кнопки
+   =============================================== */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    border: 2px solid var(--white);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--secondary-color);
+}
+
+/* ===============================================
+   Карточки категорий
+   =============================================== */
+.category-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===============================================
+   Карточки товаров
+   =============================================== */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ===============================================
+   Формы
+   =============================================== */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+/* ===============================================
+   Модальное окно
+   =============================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+/* ===============================================
+   Страница товара
+   =============================================== */
+.product-gallery {
+    display: grid;
+    gap: 1rem;
+}
+
+.product-gallery-main {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.product-gallery-thumbs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.product-gallery-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.product-gallery-thumb:hover,
+.product-gallery-thumb.active {
+    border-color: var(--primary-color);
+}
+
+/* ===============================================
+   Tabs (вкладки)
+   =============================================== */
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+}
+
+.tab {
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    color: var(--primary-color);
+}
+
+.tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ===============================================
+   Страница контактов
+   =============================================== */
+.contact-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fff7ed;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.contact-icon svg {
+    width: 30px;
+    height: 30px;
+    color: var(--primary-color);
+}
+
+/* ===============================================
+   Форма контактов
+   =============================================== */
+.contact-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* ===============================================
+   Карта
+   =============================================== */
+.map-container {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+/* ===============================================
+   Breadcrumbs (хлебные крошки)
+   =============================================== */
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.breadcrumbs a {
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary-color);
+}
+
+.breadcrumbs span {
+    color: var(--text-color);
+}
+
+/* ===============================================
+   Фильтры каталога
+   =============================================== */
+.filter-section {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.filter-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.filter-option:hover {
+    color: var(--primary-color);
+}
+
+/* ===============================================
+   Pagination (пагинация)
+   =============================================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.pagination-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.pagination-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.pagination-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* ===============================================
+   Количество товара
+   =============================================== */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9fafb;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    border: none;
+    font-weight: 500;
+}
+
+/* ===============================================
+   Badge (значки)
+   =============================================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge-success {
+    background-color: #d1fae5;
+    color: #047857;
+}
+
+.badge-warning {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.badge-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ===============================================
+   Рейтинг (звезды)
+   =============================================== */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.star {
+    color: #fbbf24;
+}
+
+.star-empty {
+    color: #e5e7eb;
+}
+
+/* ===============================================
+   Скролл к верху
+   =============================================== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 50;
+    box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* ===============================================
+   Адаптивность
+   =============================================== */
+@media (max-width: 1024px) {
+    .hero-image {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 0;
+        min-height: auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-gallery-thumbs {
+        justify-content: center;
+    }
+
+    .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab {
+        white-space: nowrap;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ===============================================
+   Анимации
+   =============================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* ===============================================
+   Утилиты
+   =============================================== */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
