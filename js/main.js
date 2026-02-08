@@ -1225,7 +1225,7 @@ function createProductCard(product) {
     
     card.innerHTML = `
         <div class="relative">
-            <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-80 object-cover">
             ${product.badge ? `<span class="absolute top-3 left-3 ${badgeClass} text-white text-sm px-3 py-1 rounded-full">${product.badge}</span>` : ''}
         </div>
         <div class="p-4">
