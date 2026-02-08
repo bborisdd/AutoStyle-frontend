@@ -1224,8 +1224,8 @@ function createProductCard(product) {
     const formattedOldPrice = product.oldPrice ? new Intl.NumberFormat('ru-RU').format(product.oldPrice) : null;
     
     card.innerHTML = `
-        <div class="relative">
-            <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+        <div class="relative bg-gray-100">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-56 object-contain p-2">
             ${product.badge ? `<span class="absolute top-3 left-3 ${badgeClass} text-white text-sm px-3 py-1 rounded-full">${product.badge}</span>` : ''}
         </div>
         <div class="p-4">
