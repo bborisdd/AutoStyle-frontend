@@ -79,21 +79,17 @@
                     <!-- Галерея изображений -->
                     <div class="product-gallery">
                         <div class="product-gallery-main mb-4 bg-gray-50 p-6 rounded-xl flex items-center justify-center min-h-[400px]">
-                            <img id="mainImage" src="images/products/floor-mats.jpg" alt="Коврики EVA Premium" class="max-w-full max-h-[600px] w-auto h-auto object-contain rounded-xl">
+                            <img id="mainImage" src="" alt="Загрузка..." class="max-w-full max-h-[600px] w-auto h-auto object-contain rounded-xl hidden">
+                            <div id="image-loader" class="flex flex-col items-center justify-center text-gray-400">
+                                <svg class="animate-spin h-10 w-10 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span>Загрузка изображения...</span>
+                            </div>
                         </div>
-                        <div class="product-gallery-thumbs">
-                            <div class="product-gallery-thumb active" onclick="changeImage(this, 'images/products/floor-mats.jpg')">
-                                <img src="images/products/floor-mats.jpg" alt="Коврики EVA Premium - вид 1" class="w-full h-full object-cover">
-                            </div>
-                            <div class="product-gallery-thumb" onclick="changeImage(this, 'images/products/floor-mats-2.jpg')">
-                                <img src="images/products/floor-mats-2.jpg" alt="Коврики EVA Premium - вид 2" class="w-full h-full object-cover">
-                            </div>
-                            <div class="product-gallery-thumb" onclick="changeImage(this, 'images/products/floor-mats-3.jpg')">
-                                <img src="images/products/floor-mats-3.jpg" alt="Коврики EVA Premium - вид 3" class="w-full h-full object-cover">
-                            </div>
-                            <div class="product-gallery-thumb" onclick="changeImage(this, 'images/products/floor-mats-4.jpg')">
-                                <img src="images/products/floor-mats-4.jpg" alt="Коврики EVA Premium - вид 4" class="w-full h-full object-cover">
-                            </div>
+                        <div id="product-gallery-thumbs" class="product-gallery-thumbs hidden">
+                            <!-- Миниатюры будут добавлены через JavaScript -->
                         </div>
                     </div>
 
@@ -314,11 +310,22 @@
                 document.getElementById('product-title').textContent = currentProduct.name;
                 
                 // Главное изображение
-                document.getElementById('mainImage').src = currentProduct.image;
-                document.getElementById('mainImage').alt = currentProduct.name;
+                const mainImage = document.getElementById('mainImage');
+                const imageLoader = document.getElementById('image-loader');
+                mainImage.src = currentProduct.image;
+                mainImage.alt = currentProduct.name;
+                
+                // Показываем картинку и скрываем loader после загрузки
+                mainImage.onload = function() {
+                    imageLoader.classList.add('hidden');
+                    mainImage.classList.remove('hidden');
+                };
+                mainImage.onerror = function() {
+                    imageLoader.innerHTML = '<span class="text-gray-400">Не удалось загрузить изображение</span>';
+                };
                 
                 // Скрываем галерею миниатюр (у нас только одно изображение на товар)
-                document.querySelector('.product-gallery-thumbs').style.display = 'none';
+                document.getElementById('product-gallery-thumbs').style.display = 'none';
                 
                 // Наличие и артикул
                 document.getElementById('product-stock').textContent = currentProduct.inStock ? 'В наличии' : 'Нет в наличии';
