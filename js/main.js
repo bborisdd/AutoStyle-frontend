@@ -1224,9 +1224,9 @@ function createProductCard(product) {
     const formattedOldPrice = product.oldPrice ? new Intl.NumberFormat('ru-RU').format(product.oldPrice) : null;
     
     card.innerHTML = `
-        <div class="relative bg-gray-50 p-4 flex items-center justify-center min-h-[280px] rounded-t-xl">
-            <img src="${product.image}" alt="${product.name}" class="max-w-full max-h-[250px] w-auto h-auto object-contain rounded-lg">
-            ${product.badge ? `<span class="absolute top-4 left-4 ${badgeClass} text-white text-sm px-3 py-1 rounded-full">${product.badge}</span>` : ''}
+        <div class="relative">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-[450px] object-cover">
+            ${product.badge ? `<span class="absolute top-3 left-3 ${badgeClass} text-white text-sm px-3 py-1 rounded-full">${product.badge}</span>` : ''}
         </div>
         <div class="p-4">
             <div class="flex items-center gap-1 mb-2">
