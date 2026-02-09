@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Коврики EVA Premium - AutoStyle</title>
+    <title>Загрузка товара... - AutoStyle</title>
     <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -112,7 +112,7 @@
                                 <span id="product-old-price" class="text-lg text-gray-400 line-through hidden">--- ₽</span>
                                 <span id="product-discount" class="badge bg-red-100 text-red-600 hidden">-0%</span>
                             </div>
-                            <p class="text-sm text-gray-500 mt-1">Цена за комплект из 4 ковриков</p>
+                            <p id="price-note" class="text-sm text-gray-500 mt-1 hidden"></p>
                         </div>
 
                         <!-- Выбор цвета -->
@@ -141,7 +141,7 @@
                             </div>
                             <!-- Итоговая стоимость -->
                             <div class="mt-3">
-                                <p class="text-lg font-semibold text-gray-900">Итого: <span id="totalPrice">2 990 ₽</span></p>
+                                <p class="text-lg font-semibold text-gray-900">Итого: <span id="totalPrice">--- ₽</span></p>
                             </div>
                         </div>
 
@@ -305,6 +305,9 @@
                 // Заполняем данные на странице
                 basePrice = currentProduct.price;
                 
+                // Обновляем title страницы
+                document.title = `${currentProduct.name} - AutoStyle`;
+                
                 // Хлебные крошки и заголовок в шапке
                 document.getElementById('breadcrumb-product').textContent = currentProduct.name;
                 document.getElementById('product-title').textContent = currentProduct.name;
@@ -338,6 +341,9 @@
                 // Цена
                 const formattedPrice = new Intl.NumberFormat('ru-RU').format(currentProduct.price);
                 document.getElementById('product-price').textContent = formattedPrice + ' ₽';
+                
+                // Устанавливаем начальную цену в "Итого"
+                document.getElementById('totalPrice').textContent = formattedPrice + ' ₽';
                 
                 // Старая цена и скидка
                 const oldPriceEl = document.getElementById('product-old-price');
