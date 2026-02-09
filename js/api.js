@@ -3,10 +3,10 @@
  * Клиент для работы с backend API
  */
 
-// URL API сервера (изменить на продакшен URL после деплоя)
+// URL API сервера
 const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:3000/api'
-    : 'https://your-railway-app.railway.app/api'; // TODO: Заменить на реальный URL после деплоя
+    : 'https://autostyle-backend-production.up.railway.app/api';
 
 /**
  * Базовая функция для API запросов
