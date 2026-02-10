@@ -614,13 +614,22 @@ select:focus {
     /* Мобильное меню */
     nav.flex.flex-col {
         gap: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     nav.flex.flex-col .nav-link {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 0.75rem 1rem;
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0.75rem 1rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Убираем space-x-8 от Tailwind */
+    nav.flex.flex-col > * + * {
+        margin-left: 0 !important;
     }
 }
 
