@@ -60,7 +60,8 @@ function initMobileMenu() {
             nav.classList.toggle('bg-gray-900');
             nav.classList.toggle('p-4');
             nav.classList.toggle('items-center');
-            nav.classList.toggle('text-center');
+            nav.classList.toggle('space-x-8'); // Убираем/возвращаем горизонтальные отступы
+            nav.classList.toggle('gap-4'); // Добавляем/убираем вертикальные отступы
         });
     }
 }
