@@ -399,7 +399,7 @@
         async function checkout() {
             const currentUser = getCurrentUser(); // Используем функцию из api.js
             
-            if (!currentUser) {
+            if (!currentUser || !isAuthenticated()) {
                 showNotification('Для оформления заказа необходимо войти в аккаунт', 'error');
                 showLoginModal();
                 return;
@@ -414,8 +414,8 @@
             const total = getCartTotalPrice();
             
             try {
-                // Отправляем заказ на сервер
-                await createOrder(currentUser.id, cart, total);
+                // Отправляем заказ на сервер (userId берётся из токена на сервере)
+                await createOrder(cart, total);
                 
                 // Очищаем корзину
                 clearCart();
